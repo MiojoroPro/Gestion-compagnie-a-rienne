@@ -1,9 +1,11 @@
+psql -U postgres -d test_db
+
 DROP DATABASE IF EXISTS test_db;
 CREATE DATABASE test_db;
-USE test_db;
+-- Connectez-vous à la base test_db avant d'exécuter la suite
 
 CREATE TABLE simple_entity (
-	id BIGINT PRIMARY KEY,
+	id BIGSERIAL PRIMARY KEY,
 	name VARCHAR(255)
 );
 

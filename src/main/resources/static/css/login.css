@@ -1,56 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-page: #f4f6f9;
+    --bg-card: #ffffff;
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --danger: #dc2626;
+    --shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--bg-page);
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
 }
 
+/* ===== Login Card ===== */
 .login-container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    background: var(--bg-card);
+    width: 380px;              /* ⬅ plus large */
+    padding: 40px;             /* ⬅ plus d’espace */
+    border-radius: 14px;
+    box-shadow: var(--shadow);
 }
 
-h2 {
+/* ===== Title ===== */
+.login-container h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 1.8rem;         /* ⬅ plus grand */
+    color: var(--text-main);
 }
 
+/* ===== Labels ===== */
 label {
     display: block;
-    margin-top: 10px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;        /* ⬅ plus lisible */
+    color: var(--text-muted);
+    font-weight: 500;
 }
 
+/* ===== Inputs ===== */
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
+    padding: 12px 14px;        /* ⬅ plus confortable */
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
+}
+
+/* ===== Button ===== */
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #3a7ca5;
-    color: white;
+    padding: 14px;             /* ⬅ bouton plus haut */
+    background: var(--primary);
+    color: #fff;
     border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;        /* ⬅ texte bouton plus grand */
+    font-weight: 600;
     cursor: pointer;
-    font-weight: bold;
-    border-radius: 4px;
+    transition: background 0.2s, transform 0.1s;
 }
 
 button:hover {
-    background-color: #052f48;
+    background: var(--primary-dark);
 }
 
+button:active {
+    transform: scale(0.97);
+}
+
+/* ===== Error ===== */
 .error-message {
-    color: red;
+    margin-top: 18px;
     text-align: center;
-    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--danger);
 }

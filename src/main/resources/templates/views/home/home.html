@@ -27,6 +27,15 @@
                     th:classappend="${#httpServletRequest != null and #strings.contains(#httpServletRequest.requestURI, '/avions')} ? ' is-active' : ''">
                 Avions
             </a>
+            <a class="menu-link" href="/reservations"
+                    th:classappend="${#httpServletRequest != null and #strings.contains(#httpServletRequest.requestURI, '/reservations')} ? ' is-active' : ''">
+                Liste reservations
+            </a>
+
+            <a class="menu-link" href="/demande/reservation"
+                    th:classappend="${#httpServletRequest != null and #strings.contains(#httpServletRequest.requestURI, '/demande/reservation')} ? ' is-active' : ''">
+                Demande de reservation
+            </a>
             <a class="menu-link logout" href="/logout">Déconnexion</a>
         </nav>
     </aside>

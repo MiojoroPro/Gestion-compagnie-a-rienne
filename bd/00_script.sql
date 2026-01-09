@@ -47,7 +47,7 @@ CREATE TABLE Vol (
     id_aeroport_depart INT NOT NULL,
     id_aeroport_arrivee INT NOT NULL,
     date_depart TIMESTAMP NOT NULL,
-    date_arrivee TIMESTAMP NOT NULL,
+     date_arrivee TIMESTAMP NOT NULL,
     statut VARCHAR(20) DEFAULT 'prévu',
     FOREIGN KEY (id_avion) REFERENCES Avion(id_avion),
     FOREIGN KEY (id_aeroport_depart) REFERENCES Aeroport(id_aeroport),

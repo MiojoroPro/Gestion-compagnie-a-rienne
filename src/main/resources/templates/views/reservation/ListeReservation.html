@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des réservations</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+
+<body>
+<div class="app-shell">
+
+    <!-- SIDEBAR (inchangée) -->
+    <aside class="sidebar">
+        <div class="brand">
+            <p class="brand-label">compagnie</p>
+            <p class="brand-title">Fly Away</p>
+        </div>
+        <nav class="menu">
+            <a class="menu-link" href="/home">Accueil</a>
+            <a class="menu-link" href="/compagnies">Compagnies</a>
+            <a class="menu-link" href="/avions">Avions</a>
+            <a class="menu-link is-active" href="/reservations">Liste reservations</a>
+            <a class="menu-link logout" href="/logout">Déconnexion</a>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-area">
+
+        <header class="main-header">
+            <h1>Liste des réservations</h1>
+        </header>
+
+        <section class="table-wrapper">
+            <div class="table-responsive">
+                <table class="data-table">
+
+                    <thead>
+                    <tr>
+                        <th>N° Réservation</th>
+                        <th>Départ</th>
+                        <th>Arrivée</th>
+                        <th>Date réservation</th>
+                        <th>Passager</th>
+                        <th>Statut</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <!-- BOUCLE THYMELEAF -->
+                    <tr th:each="reservation : ${reservations}">
+                        <td th:text="${reservation.idReservation}"></td>
+
+                        <td th:text="${reservation.prixVol.vol.depart}"></td>
+                        <td th:text="${reservation.prixVol.vol.arrivee}"></td>
+
+                        <td th:text="${#temporals.format(reservation.dateReservation, 'dd/MM/yyyy HH:mm')}"></td>
+
+                        <td th:text="${reservation.passager.nom}"></td>
+
+                        <td th:text="${reservation.statut}"></td>
+                    </tr>
+
+                    <!-- SI AUCUNE DONNÉE -->
+                    <tr th:if="${#lists.isEmpty(reservations)}">
+                        <td colspan="6" style="text-align:center">
+                            Aucune réservation trouvée
+                        </td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <span>© 2026 Compagnie aérienne</span>
+        </footer>
+
+    </main>
+</div>
+</body>
+</html>

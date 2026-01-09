@@ -40,3 +40,6 @@ build/
 
 # Env
 .env
+
+# Ignore le fichier de configuration Spring
+**/application.properties

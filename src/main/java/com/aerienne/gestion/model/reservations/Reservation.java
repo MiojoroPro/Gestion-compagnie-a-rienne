@@ -7,8 +7,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Reservation",
-       uniqueConstraints = @UniqueConstraint(columnNames = {"id_passager", "id_prix_vol"}))
+@Table(name = "reservation")
 public class Reservation {
 
     @Id
@@ -27,5 +26,23 @@ public class Reservation {
     private String siege;
     private String statut;
 
-    // getters & setters
+    public Long getIdReservation() {
+        return idReservation;
+    }
+
+    public Passager getPassager() {
+        return passager;
+    }
+
+    public LocalDateTime getDateReservation() {
+        return dateReservation;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public String getSiege() {
+        return siege;
+    }
 }
